@@ -1,0 +1,54 @@
+<form  class="form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  <div class="container">
+    <div style="max-width: 50%;" >
+    <div class="text-center">
+      <br/>
+      <label for="uname"><b><h3>Sign Up</h3></b></label>
+    </div>
+    <div class="form-group">
+      <label for="firstName"><b>First Name</b></label>
+      <input class="form-control" type="text" placeholder="Enter First Name" name="fname" formControlName="firstName">
+        <span class="text-danger"
+        *ngIf="(signupFormControl.firstName.touched || submitted) && signupFormControl.firstName.errors?.required">
+        First Name is required
+        </span>
+        <br/>
+        <label for="lastName"><b>Last Name</b></label>
+        <input class="form-control" type="text" placeholder="Enter Last Name" name="lname" formControlName="lastName">
+          <span class="text-danger"
+          *ngIf="(signupFormControl.lastName.touched || submitted) && signupFormControl.lastName.errors?.required">
+          Last Name is required
+          </span>
+          <br/>
+          <label for="email"><b>Email</b></label>
+          <input class="form-control" type="text" placeholder="Enter Email" name="email" formControlName="email">
+            <span class="text-danger"
+            *ngIf="(signupFormControl.email.touched || submitted) && signupFormControl.email.errors?.required">
+            Email is required
+            </span>
+            <span class="text-danger" *ngIf="signupFormControl.email.touched && signupFormControl.email.errors?.email">
+            Enter a valid email address
+             </span>
+            <br/>
+          <label for="uname"><b>Username</b></label>
+          <input class="form-control" type="text" placeholder="Enter Username" name="uname" formControlName="username">
+            <span class="text-danger"
+            *ngIf="(signupFormControl.username.touched || submitted) && signupFormControl.username.errors?.required">
+            User Name is required
+            </span>
+            <br/>
+          <label for="psw"><b>Password</b></label>
+          <input class="form-control" type="password" placeholder="Enter Password" name="psw" formControlName="password">
+          <span class="text-danger"
+          *ngIf="(signupFormControl.password.touched || submitted) && signupFormControl.password.errors?.required">
+          Password is required
+          </span>
+    <br/>
+    <div class="text-center">
+        <button class="btn-primary form-control" style="width:20%;" type="submit">Sign Up</button>
+    </div>
+    <br/>
+  </div>
+</div>
+</div>
+</form>

@@ -1,0 +1,43 @@
+<form  class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="container">
+    <div style="max-width: 50%;" >
+    <div class="text-center">
+      <br/>
+      <label for="uname"><b><h3>Login</h3></b></label>
+    </div>
+    <div class="form-group">
+    <label for="uname"><b>Username</b></label>
+    <input class="form-control" type="text" placeholder="Enter Username" name="uname" formControlName="username">
+      <span class="text-danger"
+      *ngIf="(loginFormControl.username.touched || submitted) && loginFormControl.username.errors?.required">
+      User Name is required
+      </span>
+      <br/>
+    <label for="psw"><b>Password</b></label>
+    <input class="form-control" type="password" placeholder="Enter Password" name="psw" formControlName="password">
+    <span class="text-danger"
+    *ngIf="(loginFormControl.password.touched || submitted) && loginFormControl.password.errors?.required">
+    Password is required
+    </span>
+    <br/>
+    <div class="text-center">
+        <button class="btn-primary form-control" style="width:20%;" type="submit">Login</button>
+    </div>
+    <br/>
+    <span class="text-danger"
+    *ngIf="loginMessage !== ''">
+    {{loginMessage}}
+    </span>
+    <br/>
+  </div>
+  <div>
+    <span class="psw"><a  [routerLink]="['/reset-password']"> Forgot password?</a></span>
+  </div>
+  <br/>
+  <div>
+    <span class="psw"> Already a user?</span>
+    <button type="button" [routerLink]="['/signup']" routerLinkActive class="btn-primary form-control"  style="width:20%;" >Sign in</button>
+  </div>
+</div>
+</div>
+</form>
